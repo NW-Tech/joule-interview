@@ -21,6 +21,14 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Prisma
+
+# migrate
+
+```bash
+$ npx prisma migrate dev --name "<NAME>"
+```
+
 ## Test
 
 ```bash
