@@ -1,13 +1,14 @@
 # Joule interview
 
-This repository aims to emulate a blog post application. It is imperfect on purpose, we'd like your comments on it !
-Please see the exercise as if you joined a team that created this repository, which is now used like this in production. What would you do with it ?
-
-We would advise spending between 60 and 120 minutes on this exercise, and try answering the following questions:
--What good practices do you see that you would reuse on other NestJS projects ?
--What would you bring to improve the **quality** checks made (in order to reduce the number of bugs in prod) ?
--What would you do to improve the **developer experience** ?
--What would you do to improve the **security** of the application ?
+This repository aims to emulate a blog post application. It is imperfect on purpose, we'd like your comments on it !<br/>
+Please see the exercise as if you joined a team that created this repository, which is now used like this in production. What would you do with it ?<br/>
+<br/>
+We would advise spending between 60 and 120 minutes on this exercise, and try answering the following questions:<br/>
+-What good practices do you see that you would reuse on other NestJS projects ?<br/>
+-What would you refactor in the code to improve its **quality** ?<br/>
+-What would you bring to improve the **CI/CD** (in order to reduce the number of bugs in prod) ?<br/>
+-What would you do to improve the **DevX** ?<br/>
+-What would you do to improve the **security** of the application ?<br/>
 
 # Installation & setup
 

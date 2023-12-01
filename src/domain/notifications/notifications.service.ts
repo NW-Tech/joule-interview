@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { EmailService } from "src/infrastructure/email/email.service";
+import { EmailService } from "../../infrastructure/email/email.service";
 import { Article } from "../articles/entities/article.entity";
-import { PrismaService } from "src/infrastructure/prisma/prisma.service";
+import { PrismaService } from "../../infrastructure/prisma/prisma.service";
 
 @Injectable()
 export class NotificationService {
@@ -22,6 +22,7 @@ export class NotificationService {
                 },
             },
         });
+        if (!author.followedBy) return;
 
         this.emailService.sendEmail(
             `New article from ${author.email}`,

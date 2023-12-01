@@ -2,9 +2,9 @@ import { ApiProperty, PartialType } from "@nestjs/swagger";
 import {
     Article,
     MutableArticle,
-} from "src/domain/articles/entities/article.entity";
+} from "../../../domain/articles/entities/article.entity";
 import { RequestDto, ResponseDto } from "../dto";
-import { WithOptional } from "src/utils/types";
+import { WithOptional } from "../../../utils/types";
 
 export class ArticleDto implements Article {
     @ApiProperty()

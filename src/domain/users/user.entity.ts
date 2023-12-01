@@ -2,5 +2,6 @@ export interface User {
     id: number;
     email: string;
     password: string;
-    followers?: User[];
+    following?: User[];
+    followedBy?: User[];
 }

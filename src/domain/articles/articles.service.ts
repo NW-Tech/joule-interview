@@ -1,8 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "src/infrastructure/prisma/prisma.service";
+import { PrismaService } from "../../infrastructure/prisma/prisma.service";
 import { Article, MutableArticle } from "./entities/article.entity";
 import { validateUserCanMutateArticle } from "./rules";
 import { NotificationService } from "../notifications/notifications.service";
+import { Mutable } from "../../utils/types";
 
 @Injectable()
 export class ArticlesService {
@@ -11,18 +12,23 @@ export class ArticlesService {
         private notificationService: NotificationService,
     ) {}
 
-    create = async (article: MutableArticle) => {
+    create = async (article: Mutable<Article>) => {
         const createdArticle = await this.prisma.article.create({
-            data: { ...article, authorId: 1 },
+            data: { ...article },
         });
-        this.notificationService.notifyPublishedArticle(createdArticle);
+        if (createdArticle.published)
+            this.notificationService.notifyPublishedArticle(createdArticle);
     };
 
     publish = (id: number) => {
-        return this.prisma.article.update({
-            where: { id },
-            data: { published: true },
-        });
+        this.prisma.article
+            .update({
+                where: { id },
+                data: { published: true },
+            })
+            .then((article: Article) =>
+                this.notificationService.notifyPublishedArticle(article),
+            );
     };
 
     findAll = async (): Promise<Article[]> => {

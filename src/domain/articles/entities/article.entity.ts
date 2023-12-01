@@ -1,4 +1,4 @@
-import { Mutable } from "src/utils/types";
+import { Mutable } from "../../../utils/types";
 
 export type Article = {
     id: number;

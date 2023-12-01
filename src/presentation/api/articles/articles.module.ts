@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { ArticlesController } from "./articles.controller";
-import { ArticlesModule } from "src/domain/articles/articles.module";
+import { ArticlesModule } from "../../../domain/articles/articles.module";
 
 @Module({
     controllers: [ArticlesController],

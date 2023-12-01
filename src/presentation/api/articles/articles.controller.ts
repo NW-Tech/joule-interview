@@ -35,9 +35,12 @@ export class ArticlesController {
     @ApiBearerAuth()
     @Post()
     @ApiCreatedResponse({ type: ArticleDto })
-    create(@Body() createArticleDto: CreateArticleDto) {
+    create(@Body() createArticleDto: CreateArticleDto, @Request() request) {
         const article = new CreateArticleRequest(createArticleDto).toEntity();
-        return this.articlesService.create(article);
+        return this.articlesService.create({
+            ...article,
+            authorId: request.user.id,
+        });
     }
 
     @Get()
