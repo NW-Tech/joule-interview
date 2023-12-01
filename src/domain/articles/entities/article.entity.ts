@@ -2,6 +2,7 @@ import { Mutable } from "src/utils/types";
 
 export type Article = {
     id: number;
+    authorId: number;
     title: string;
     description: string;
     body: string;
@@ -10,4 +11,4 @@ export type Article = {
     updatedAt: Date;
 };
 
-export type MutableArticle = Mutable<Article>;
+export type MutableArticle = Mutable<Omit<Article, "authorId">>;

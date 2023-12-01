@@ -11,6 +11,9 @@ export class ArticleDto implements Article {
     id: number;
 
     @ApiProperty()
+    authorId: number;
+
+    @ApiProperty()
     title: string;
 
     @ApiProperty({ required: false, nullable: true })
@@ -37,6 +40,7 @@ export class ArticleResponse implements ResponseDto<Article, ArticleDto> {
     fromEntity = (): ArticleDto => {
         return {
             id: this.data.id,
+            authorId: this.data.authorId,
             title: this.data.title,
             description: this.data.description,
             body: this.data.body,
