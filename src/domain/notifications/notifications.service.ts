@@ -7,10 +7,26 @@ import { PrismaService } from "src/infrastructure/prisma/prisma.service";
 export class NotificationService {
     constructor(
         private emailService: EmailService,
-        private prisme: PrismaService,
+        private prisma: PrismaService,
     ) {}
 
-    notifyPublishedArticle = (article: Article) => {
-        console.log(article);
+    notifyPublishedArticle = async (article: Article) => {
+        const author = await this.prisma.user.findUnique({
+            where: { id: article.authorId },
+            select: {
+                email: true,
+                followedBy: {
+                    select: {
+                        email: true,
+                    },
+                },
+            },
+        });
+
+        this.emailService.sendEmail(
+            `New article from ${author.email}`,
+            `Check out the new article from ${author.email} at https://blog/articles/${article.id}`,
+            author.followedBy.map(({ email }) => email),
+        );
     };
 }

@@ -5,8 +5,9 @@ Please see the exercise as if you joined a team that created this repository, wh
 
 We would advise spending between 60 and 120 minutes on this exercise, and try answering the following questions:
 -What good practices do you see that you would reuse on other NestJS projects ?
--What would you bring to reduce the quantity of bugs in production ?
--What would you do to improve the developer experience ?
+-What would you bring to improve the **quality** checks made (in order to reduce the number of bugs in prod) ?
+-What would you do to improve the **developer experience** ?
+-What would you do to improve the **security** of the application ?
 
 # Installation & setup
 

@@ -2,15 +2,20 @@ import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/infrastructure/prisma/prisma.service";
 import { Article, MutableArticle } from "./entities/article.entity";
 import { validateUserCanMutateArticle } from "./rules";
+import { NotificationService } from "../notifications/notifications.service";
 
 @Injectable()
 export class ArticlesService {
-    constructor(private prisma: PrismaService) {}
+    constructor(
+        private prisma: PrismaService,
+        private notificationService: NotificationService,
+    ) {}
 
-    create = (article: MutableArticle) => {
-        return this.prisma.article.create({
+    create = async (article: MutableArticle) => {
+        const createdArticle = await this.prisma.article.create({
             data: { ...article, authorId: 1 },
         });
+        this.notificationService.notifyPublishedArticle(createdArticle);
     };
 
     publish = (id: number) => {
