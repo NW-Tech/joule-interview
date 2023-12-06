@@ -6,19 +6,19 @@
     "private": true,
     "license": "UNLICENSED",
     "scripts": {
-        "build": "nest build",
+        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "start": "nest start",
-        "start:dev": "nest start --watch",
-        "start:debug": "nest start --debug --watch",
-        "start:prod": "node dist/main",
-        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+        "build": "nest build",
         "test": "jest",
         "test:log": "jest --verbose=true",
-        "test:watch": "jest --watch",
-        "test:cov": "jest --coverage",
         "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-        "test:e2e": "jest --config ./test/jest-e2e.json"
+        "test:e2e": "jest --config ./test/jest-e2e.json",
+        "migrate": "prisma migrate dev",
+        "seed": "ts-node prisma/seed.ts",
+        "//prisma:local": "echo 'You should create a .env.local file where you replace the database:5432 adress for DATABASE_URL by localhost:5432 in order to execute prisma scripts on the container'",
+        "migrate:local": "dotenv -e .env.local -- prisma migrate dev",
+        "seed:local": "dotenv -e .env.local -- ts-node prisma/seed.ts"
     },
     "dependencies": {
         "@nestjs/common": "10.0.0",
