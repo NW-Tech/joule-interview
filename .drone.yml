@@ -1,13 +1,10 @@
 kind: pipeline
-type: docker
 name: continuous-integration
 
 trigger:
     event:
         - push
         - pull_request
-    branch:
-        - main
 
 steps:
     - name: quality-checks
