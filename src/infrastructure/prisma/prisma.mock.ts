@@ -1,5 +1,5 @@
 import { Mutable } from "../../utils/types";
-import { Article } from "../../domain/articles/entities/article.entity";
+import { Article } from "../../domain/articles/article.entity";
 import { getMax } from "../../utils/objects";
 import { User } from "../../domain/users/user.entity";
 

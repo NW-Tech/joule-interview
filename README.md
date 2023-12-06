@@ -86,3 +86,7 @@ We build the image of the application on a registry. From there, a Portainer ser
 ```shell
 docker compose up
 ```
+
+# Drone
+
+We use drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch

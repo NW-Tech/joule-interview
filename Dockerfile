@@ -2,12 +2,12 @@ FROM node:18-alpine as dev
 # add the missing shared libraries from alpine base image
 RUN apk add --no-cache libc6-compat
 
-
 WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install --omit=dev
 RUN npm install -g prisma
+RUN npm install -g nest
 
 COPY . .
 

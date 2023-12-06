@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "../../infrastructure/prisma/prisma.service";
-import { Article, MutableArticle } from "./entities/article.entity";
+import { Article, MutableArticle } from "./article.entity";
 import { validateUserCanMutateArticle } from "./rules";
 import { NotificationService } from "../notifications/notifications.service";
 import { Mutable } from "../../utils/types";
