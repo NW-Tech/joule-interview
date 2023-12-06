@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { EmailService } from "../../infrastructure/email/email.service";
-import { Article } from "../articles/entities/article.entity";
+import { Article } from "../articles/article.entity";
 import { PrismaService } from "../../infrastructure/prisma/prisma.service";
 
 @Injectable()

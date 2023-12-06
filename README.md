@@ -9,6 +9,7 @@ We would advise spending between 60 and 120 minutes on this exercise, and try an
 -What would you bring to improve the **CI/CD** (in order to reduce the number of bugs in prod) ?<br/>
 -What would you do to improve the **DevX** ?<br/>
 -What would you do to improve the **security** of the application ?<br/>
+-If you had to add a Commenting feature on articles, how would you do it ? (Do not hesitate to write code !)<br/>
 
 # Installation & setup
 
@@ -23,13 +24,15 @@ npm install
 To start the database, you can use docker
 
 ```shell
-docker compose up
+docker compose up database
 ```
 
 ### migrations
 
+Apply migrations to the database with the following command
+
 ```shell
-npx prisma migrate dev
+npm run migrate
 ```
 
 ### seed
@@ -37,7 +40,7 @@ npx prisma migrate dev
 You can then populate the database with the seeds we created !
 
 ```shell
-ts-node prisma/seed.ts
+npm run seed
 ```
 
 # Running the app
@@ -45,14 +48,7 @@ ts-node prisma/seed.ts
 Once you have setup the database and applied the migrations
 
 ```shell
-# development
 npm run start
-
-# watch mode
-npm run start:dev
-
-# production mode
-npm run start:prod
 ```
 
 # Login
@@ -68,9 +64,6 @@ npm run test
 
 # e2e tests
 npm run test:e2e
-
-# test coverage
-npm run test:cov
 ```
 
 # Prisma
@@ -80,10 +73,20 @@ npm run test:cov
 When changing the data model you should run the following command to generate and apply the associated migration
 
 ```shell
-npx prisma migrate dev --name "<NAME>"
+npm run migrate -- --name "<NAME>"
 ```
 
 # GitFlow
 
 The `main` branch is protected. A Merge request has to be approved before it is merged into main. It is then automatically deployed with our CI/CD.
 We build the image of the application on a registry. From there, a Portainer service receives a notification and deploys the new version of the image.
+
+# Docker
+
+```shell
+docker compose up
+```
+
+# Drone
+
+We use drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch

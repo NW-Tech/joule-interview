@@ -1,4 +1,4 @@
-import { Article } from "./entities/article.entity";
+import { Article } from "./article.entity";
 
 const canUserMutateArticle = (article: Article, userId: number) => {
     return article.authorId === userId;
