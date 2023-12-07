@@ -11,7 +11,7 @@ We would advise spending between 60 and 120 minutes on this exercise, and try an
 -What would you do to improve the **security** of the application ?<br/>
 -If you had to add a Commenting feature on articles, how would you do it ? (Do not hesitate to write code !)<br/>
 
-# Installation & setup
+# Install
 
 ```shell
 npm install
@@ -19,7 +19,7 @@ npm install
 
 ## Prisma & DB
 
-### databse
+### database
 
 To start the database, you can use docker
 
@@ -43,15 +43,23 @@ You can then populate the database with the seeds we created !
 npm run seed
 ```
 
-# Running the app
+# Run
 
 Once you have setup the database and applied the migrations
+
+### Node
 
 ```shell
 npm run start
 ```
 
-# Login
+### Docker
+
+```shell
+docker compose up
+```
+
+## Login
 
 To login on the app in the dev environment you can call the login endpoint with the credentials found in the `prisma/seed.ts` file,
 and then use the `accessToken` provided as a Bearer Token. With swagger you can use this token to login.
@@ -81,12 +89,6 @@ npm run migrate -- --name "<NAME>"
 The `main` branch is protected. A Merge request has to be approved before it is merged into main. It is then automatically deployed with our CI/CD.
 We build the image of the application on a registry. From there, a Portainer service receives a notification and deploys the new version of the image.
 
-# Docker
-
-```shell
-docker compose up
-```
-
 # Drone
 
-We use drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `dev` or `main` branch
+We use drone for our CI/CD. We have two pipelines, one running at every new commit on a `pull_request`, and one whenever there is a push on `main` branch
