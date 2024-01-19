@@ -3,13 +3,21 @@
 This repository aims to emulate a blog post application. It is imperfect on purpose, we'd like your comments on it !<br/>
 Please see the exercise as if you joined a team that created this repository, which is now used like this in production. What would you do with it ?<br/>
 <br/>
-We would advise spending between 60 and 120 minutes on this exercise, and try answering the following questions:<br/>
+We would advise spending between 120 and 240 minutes on this exercise, and try answering the following questions:<br/>
 -What good practices do you see that you would reuse on other NestJS projects ?<br/>
 -What would you refactor in the code to improve its **quality** ?<br/>
 -What would you bring to improve the **CI/CD** (in order to reduce the number of bugs in prod) ?<br/>
 -What would you do to improve the **DevX** ?<br/>
 -What would you do to improve the **security** of the application ?<br/>
--If you had to add a Commenting feature on articles, how would you do it ? (Do not hesitate to write code !)<br/>
+-If you had to add a Commenting feature on articles, how would you do it ? (You should write code !)<br/><br/>
+<i>It should meet the following requirements:</i>
+<ul>
+<li>When a user comments an article, the article author should receive an email.</li>
+<li>Users can comment comments.</li>
+<li>When a user comments a comment, the comment author should receive an email.</li>
+<li>When a hateful comment is sent, it is caught and user receives a HTTP 400. (In the scope of this project just look for the "lame" keyword in a comment)</li>
+<li>Add unit tests</li>
+</ul>
 
 # Installation & setup
 
